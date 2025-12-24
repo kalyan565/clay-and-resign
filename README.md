@@ -1,15 +1,14 @@
-# Clay & Resign Art Studio
+# VS3 Clay and Resin Art Studio
 
-A futuristic, animated website for Clay & Resign Art Studio built with Next.js, TypeScript, Tailwind CSS, and Framer Motion.
+A futuristic e-commerce website for clay and resin art pieces, built with Next.js 14, React, and Tailwind CSS.
 
 ## Features
 
-- 🎨 **Futuristic Design**: Modern, eye-catching design with neon effects and glass morphism
-- ✨ **Advanced Animations**: Smooth animations powered by Framer Motion
-- 🌈 **Gradient Effects**: Beautiful gradient text and backgrounds
-- 🎭 **Interactive Elements**: Hover effects, particle animations, and 3D transforms
-- 📱 **Responsive Design**: Fully responsive across all devices
-- ⚡ **Performance Optimized**: Built with Next.js for optimal performance
+- 🎨 Beautiful futuristic UI with animations
+- 🛒 Shopping cart functionality
+- 💳 Checkout with WhatsApp integration
+- 📱 Fully responsive design
+- ✨ Smooth animations with Framer Motion
 
 ## Tech Stack
 
@@ -21,57 +20,49 @@ A futuristic, animated website for Clay & Resign Art Studio built with Next.js, 
 
 ## Getting Started
 
-### Prerequisites
-
-- Node.js 18+ installed
-- npm or yarn package manager
-
 ### Installation
 
-1. Install dependencies:
 ```bash
 npm install
 ```
 
-2. Run the development server:
+### Development
+
 ```bash
 npm run dev
 ```
 
-3. Open [http://localhost:3000](http://localhost:3000) in your browser
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-### Build for Production
+### Build
 
 ```bash
 npm run build
-npm start
 ```
+
+### Deployment
+
+This project is configured for GitHub Pages deployment. The site will be available at:
+`https://kalyan565.github.io/clay-and-resign/`
 
 ## Project Structure
 
 ```
-├── app/
-│   ├── globals.css      # Global styles with animations
-│   ├── layout.tsx       # Root layout
-│   └── page.tsx         # Home page
-├── components/
-│   ├── Header.tsx       # Navigation header
-│   ├── Footer.tsx       # Footer component
-│   ├── Hero.tsx         # Hero section with particles
-│   ├── Gallery.tsx      # Gallery showcase
-│   ├── Services.tsx     # Services section
-│   └── Contact.tsx      # Contact form
-└── public/              # Static assets
+├── app/              # Next.js app directory
+│   ├── api/         # API routes
+│   ├── cart/        # Cart page
+│   ├── checkout/    # Checkout page
+│   └── page.tsx     # Home page
+├── components/      # React components
+├── context/         # React context providers
+└── public/          # Static assets
 ```
 
-## Customization
+## Contact
 
-- Update colors in `tailwind.config.js`
-- Modify animations in `app/globals.css`
-- Add your own content in component files
-- Replace placeholder images with your artwork
+- Email: kondaveetisrilakshmisowjanya
+- Address: Nadiupet 3rd Line, Guntur, Andhra Pradesh
 
 ## License
 
-MIT License
-
+Private project

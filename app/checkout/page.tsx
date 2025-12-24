@@ -34,24 +34,16 @@ export default function CheckoutPage() {
       status: 'pending',
     })
     
-    // Send order details to WhatsApp
+    // Send order details to WhatsApp (client-side for GitHub Pages)
     try {
-      const response = await fetch('/api/send-order', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(order),
-      })
+      const whatsappMessage = formatWhatsAppMessage(order)
+      const phoneNumber = '8179262144'
+      const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(whatsappMessage)}`
       
-      const result = await response.json()
-      
-      // Open WhatsApp link if available
-      if (result.whatsappUrl) {
-        window.open(result.whatsappUrl, '_blank')
-      }
+      // Open WhatsApp link
+      window.open(whatsappUrl, '_blank')
     } catch (error) {
-      console.error('Error sending order notification:', error)
+      console.error('Error creating WhatsApp link:', error)
     }
     
     setOrderDetails(order)
@@ -65,6 +57,30 @@ export default function CheckoutPage() {
       ...formData,
       [e.target.name]: e.target.value,
     })
+  }
+
+  const formatWhatsAppMessage = (orderData: any): string => {
+    const items = orderData.items.map((item: any) => 
+      `• ${item.name} x${item.quantity} - ₹${(item.price * item.quantity).toLocaleString()}`
+    ).join('\n')
+
+    return `🛒 *New Order Received!*
+
+📦 *Order Number:* ${orderData.orderNumber}
+
+👤 *Customer Details:*
+• Name: ${orderData.customerName}
+• Address: ${orderData.address}
+• Place: ${orderData.place}
+
+📋 *Order Items:*
+${items}
+
+💰 *Total Amount:* ₹${orderData.total.toLocaleString()}
+
+📅 *Order Date:* ${new Date(orderData.date).toLocaleString('en-IN')}
+
+Status: ${orderData.status.toUpperCase()}`
   }
 
   if (isSubmitted && orderDetails) {
