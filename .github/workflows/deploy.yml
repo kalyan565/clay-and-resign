@@ -37,6 +37,7 @@ jobs:
           NODE_ENV: production
           GITHUB_ACTIONS: 'true'
           NEXT_PUBLIC_GITHUB_PAGES: 'true'
+          NEXT_PUBLIC_BASE_PATH: '/clay-and-resign'
       
       - name: Setup Pages
         uses: actions/configure-pages@v4

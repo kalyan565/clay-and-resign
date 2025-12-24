@@ -68,13 +68,26 @@ export default function Logo() {
           {/* Logo image */}
           <div className="relative w-full h-full rounded-full overflow-hidden bg-gradient-to-br from-purple-500/10 to-pink-500/10">
             <img
-              src="/logo.jpg"
+              src={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/logo.jpg`}
               alt="VS3 Clay and Resin Art Studio Logo"
               className="w-full h-full object-contain rounded-full"
               style={{
                 filter: "drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2)) brightness(1.05) contrast(1.1)",
               }}
+              onError={(e) => {
+                // Fallback if image fails to load
+                const target = e.target as HTMLImageElement;
+                target.style.display = 'none';
+                const fallback = target.parentElement?.querySelector('.logo-fallback') as HTMLElement;
+                if (fallback) {
+                  fallback.style.display = 'flex';
+                }
+              }}
             />
+            {/* Fallback logo if image not found */}
+            <div className="logo-fallback hidden absolute inset-0 items-center justify-center bg-gradient-to-br from-purple-600 to-pink-600 rounded-full">
+              <span className="text-2xl font-bold text-white font-[var(--font-orbitron)]">VS3</span>
+            </div>
           </div>
         </motion.div>
 
