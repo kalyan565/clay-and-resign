@@ -2,7 +2,6 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
 
 export default function Logo() {
   // Get basePath from Next.js config (works automatically with basePath setting)
